@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NT_Commercial.Model.Models
+{
+    [Table("PostTags")]
+    public class PostTag
+    {
+        [Key]
+        public int PostID { set; get; }
+        [Key]
+        [Column(TypeName ="varchar")]
+        [MaxLength(50)]
+        public int TagID { set; get; }
+
+        [ForeignKey("TagID")]
+        public virtual Tag Tag { set; get; }
+        [ForeignKey("PostID")]
+        public virtual Post Post { set; get; }
+
+    }
+}
